@@ -1,4 +1,5 @@
-﻿using Datos.Interfaces;
+﻿using Dapper;
+using Datos.Interfaces;
 using Modelos;
 using MySql.Data.MySqlClient;
 using System;
@@ -14,9 +15,9 @@ namespace Datos.Repositorios
         private string CadenaConexion;//Recibira la cadena de conexion para conectarse a la BD.
        
         //COSNTRUCTOR
-        public LoginRepositorio (string cadenaconexion)//Le pasamos la cadena desde el proyecto blazor, por medio de este constructor
+        public LoginRepositorio (string _cadenaconexion)//Le pasamos la cadena desde el proyecto blazor, por medio de este constructor
         {
-            CadenaConexion = cadenaconexion;
+            CadenaConexion = _cadenaconexion;
         }
         //Declaramos la conexion hacia MYSQL
         private MySqlConnection Conexion()
@@ -25,17 +26,25 @@ namespace Datos.Repositorios
         }
 
 
-        public Task<bool> ValidarUsuario(Login login)
+        public async Task<bool> ValidarUsuarioAsync(Login login)
         {
             bool valido = false;
             try
             {
-                using MySqlConnection _conexion = Conexion();
+                using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
+                await _conexion.OpenAsync();//Abriendo la conexion assincrona
+                //SENTENCIA SQUL=En vez del stringbuilder usamos una variables normal
+                string sql = "SELECT 1 FROM usuario WHERE CodigoUsuario= @CodigoUsuario AND Contrasena = @Contrasena;";/*Lanza un 1 si encuentra alguna coincidencia en la tabla de usuario.
+                                                                                                                        Como usamos dapper, los campos tiene que llamarse estrictametne iguaal, ya que sino no encontrara
+                                                                                                                        coincidencia y lanzara error*/
+                valido = await _conexion.ExecuteScalarAsync<bool>(sql, login  );/*Los parametros pueden ir solo con el objeto de la case o de la siguiente manera: new {login.CodigoUsuario, login.Contrasena}*/
+                
             }
             catch (Exception )
             {
 
             }
+            return valido;
         }
     }
 }
