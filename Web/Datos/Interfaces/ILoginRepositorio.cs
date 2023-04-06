@@ -10,6 +10,6 @@ namespace Datos.Interfaces
     //Asi los podemos usar en las clases 
     public interface ILoginRepositorio
     {
-        Task<bool> ValidarUsuarioAsync(Login login);
+        Task<bool> ValidarUsuarioAsync(LoginM login);
     }
 }

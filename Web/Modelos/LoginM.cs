@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public class Login
+    public class LoginM
     {
 
         public string CodigoUsuario { get; set; }
         public string Contrasena { get; set; }
 
-        public Login()
+        public LoginM()
         {
         }
 
-        public Login(string codigoUsuario, string contrasena)
+        public LoginM(string codigoUsuario, string contrasena)
         {
             CodigoUsuario = codigoUsuario;
             Contrasena = contrasena;

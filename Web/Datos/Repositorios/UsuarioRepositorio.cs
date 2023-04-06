@@ -25,7 +25,7 @@ namespace Datos.Repositorios
             return new MySqlConnection(CadenaConexion);//Pasando la conexion a mysql
         }
         //METODOS 
-        public async Task<bool> ActualizarAsync(Usuario usuario)
+        public async Task<bool> ActualizarAsync(UsuariosM usuario)
         {
             bool resultado = false;
             try
@@ -61,15 +61,15 @@ namespace Datos.Repositorios
             return eliminar;
         }
 
-        public async Task<IEnumerable<Usuario>> GetListaAsync()
+        public async Task<IEnumerable<UsuariosM>> GetListaAsync()
         {
-            IEnumerable<Usuario> lista = new List<Usuario>();//
+            IEnumerable<UsuariosM> lista = new List<UsuariosM>();//
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
                 string sql = "SELECT * FROM usuario  ;";
-                lista = await _conexion.QueryAsync<Usuario>(sql);//Devolvemos la lista de tipo "usuario"
+                lista = await _conexion.QueryAsync<UsuariosM>(sql);//Devolvemos la lista de tipo "usuario"
             }
             catch (Exception)
             {
@@ -77,15 +77,15 @@ namespace Datos.Repositorios
             return lista;
         }
 
-        public async Task<Usuario> GetPorCodigoAsync(string codigo)
+        public async Task<UsuariosM> GetPorCodigoAsync(string codigo)
         {
-            Usuario user = new Usuario();
+            UsuariosM user = new UsuariosM();
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
                 string sql = "SELECT * FROM usuario WHERE CodigoUsuario= @CodigoUsuario ;";
-                user = await _conexion.QueryFirstAsync<Usuario>(sql, new { codigo });//El query devuelve un solo resultado de tipo usurio
+                user = await _conexion.QueryFirstAsync<UsuariosM>(sql, new { codigo });//El query devuelve un solo resultado de tipo usurio
 
             }
             catch (Exception)
@@ -94,7 +94,7 @@ namespace Datos.Repositorios
             return user;
         }
 
-        public async Task<bool> NuevoAsync(Usuario usuario)
+        public async Task<bool> NuevoAsync(UsuariosM usuario)
         {
             bool resultado = false;
             try

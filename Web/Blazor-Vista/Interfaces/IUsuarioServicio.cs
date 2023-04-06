@@ -1,13 +1,8 @@
 ﻿using Modelos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Datos.Interfaces
+namespace Blazor_Vista.Interfaces
 {
-    public interface IUsuarioRepositorio
+    public interface IUsuarioServicio
     {
         Task<UsuariosM> GetPorCodigoAsync(string codigo);//Le pasaremos el codigo del usuario y nos retornara todo el objeto
         Task<bool> NuevoAsync(UsuariosM usuario);

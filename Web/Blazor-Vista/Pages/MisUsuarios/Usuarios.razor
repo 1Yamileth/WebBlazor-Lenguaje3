@@ -1,0 +1,62 @@
+﻿@page "/Usuarios"
+@using Modelos;
+
+
+<h3>LISTA DE USUARIOS</h3>
+
+@if(lista == null)
+{
+    <p>NO EXISTEN USUARIOS EN EL SISTEMA</p>
+}
+else //ETIQUETA TABLE
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Foto</th>
+                <th>Fecha Creacion</th>
+                <th>Esta Activo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(UsuariosM user in lista)//la parte de arriba es el ecabezado de la lista
+            {
+                <tr>
+                    <th>@user.CodigoUsuario</th>
+                    <th>@user.Nombre</th>
+                    <th>@user.Correo</th>
+                    <th>@user.Rol</th>
+                    <th>@user.Foto</th>
+                    <th>@user.FechaCreacion</th>
+                    @if (user.EstaActivo)
+                    {
+                        <th>
+                            <span class="oi oi-circle-check" style="color: green;"></span>
+
+                        </th>
+                    }
+                    else
+                    {
+                        <th>
+                            <span class="oi oi-circle-x" style="color: red;"></span>
+
+                        </th>
+                    }
+                    <th>
+                        <a class="btn btn-success" href="@($"/Usuarios/Editar")">Editar</a>
+                    </th>
+                    <th>@user.EstaActivo</th>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+}
+
+

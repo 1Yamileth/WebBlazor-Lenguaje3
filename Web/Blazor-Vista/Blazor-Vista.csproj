@@ -7,4 +7,32 @@
     <RootNamespace>Blazor_Vista</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+    <Content Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj" />
+    <ProjectReference Include="..\Modelos\Modelos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\MisUsuarios\EditarUsuario.razor" />
+    <None Include="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+  </ItemGroup>
+
 </Project>

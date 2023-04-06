@@ -26,7 +26,7 @@ namespace Datos.Repositorios
         }
 
 
-        public async Task<bool> ValidarUsuarioAsync(Login login)
+        public async Task<bool> ValidarUsuarioAsync(LoginM login)
         {
             bool valido = false;
             try
