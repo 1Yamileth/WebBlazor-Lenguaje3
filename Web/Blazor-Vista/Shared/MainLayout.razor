@@ -1,4 +1,4 @@
-﻿@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase /*En la linea 14, todo eso sirve para poder acceder al codigo de usuario que inicio sesion.si esta loggeada tendr la autorizacion, sino le sladra un mensjae para que ingrese sesion */
 
 <PageTitle>Lenguaje 3 </PageTitle>
 
@@ -9,7 +9,18 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <AuthorizeView>
+                <Authorized>
+                    <span class="ml-md-auto">
+                        Usuario Conectado: @context.User.Claims.First().Value
+                        <a href="/salir">Cerrar Sesion</a>
+                    </span>
+                </Authorized>
+                <NotAuthorized>
+                    <a href="login">Inciar Sesion</a>
+
+                </NotAuthorized>
+            </AuthorizeView>
         </div>
 
         <article class="content px-4">

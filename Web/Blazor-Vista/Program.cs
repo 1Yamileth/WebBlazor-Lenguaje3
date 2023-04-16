@@ -1,6 +1,7 @@
-using Blazor_Vista;
+ using Blazor_Vista;
 using Blazor_Vista.Interfaces;
 using Blazor_Vista.Servicios;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -15,7 +16,8 @@ builder.Services.AddSingleton(cadena);//Configurajmos el servicio para usarlo
 //CONFIGURAMOS LOS SERVICIOS
 builder.Services.AddScoped<ILoginServicio, LoginServicio>();//CLASE 
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();//CLASE 
-
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();//Inyectaremos o pasaremos el servicio de tipo de autentificacion
+builder.Services.AddHttpContextAccessor();//Nos permite acceder a los datos del usuario que esta con la sesion activa, que es lo que hicimos con el HttpContext en loginController
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,7 +33,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+//Lo usamos para autentificar y en dado caso autorizar a los usuarios
+app.UseAuthentication();
+app.UseAuthorization();
 
+app.MapControllers();//Le pasamos este middlelwer, signiica que nuestra app de blazor usara controladores, sino dara error el logincontroller
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 

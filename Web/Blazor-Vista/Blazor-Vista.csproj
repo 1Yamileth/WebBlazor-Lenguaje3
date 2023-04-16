@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\MisUsuarios\EditarUsuario.razor" />
-    <Content Remove="Pages\MisUsuarios\Usuarios.razor" />
+    <Content Remove="Pages\MiUsuario\EditarUsuario.razor" />
+    <Content Remove="Pages\MiUsuario\Usuarios.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,21 +18,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\MisUsuarios\Usuarios.razor" />
+    <UpToDateCheckInput Remove="Pages\MiUsuario\Usuarios.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\EditarUsuario.razor" />
-    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\Usuarios.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MiUsuario\EditarUsuario.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MiUsuario\Usuarios.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\MisUsuarios\EditarUsuario.razor" />
-    <None Include="Pages\MisUsuarios\Usuarios.razor" />
+    <None Include="Pages\MiUsuario\EditarUsuario.razor" />
+    <None Include="Pages\MiUsuario\Usuarios.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+    <UpToDateCheckInput Remove="Pages\MiUsuario\EditarUsuario.razor" />
   </ItemGroup>
 
 </Project>

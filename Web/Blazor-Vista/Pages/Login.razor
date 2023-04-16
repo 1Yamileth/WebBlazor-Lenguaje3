@@ -1,5 +1,32 @@
-﻿<h3>Login</h3>
+﻿@page "/login"
+@page "/login{MensajeError}"
+@inject NavigationManager navManager//SIrve para navegrar entre rutas en blazorr
+
+
+<h3>Login</h3>
+@if (MensajeError != null)
+{// si el usuario no esta activo muestra este error
+    <div class= "text-danger">@MensajeError</div>
+    //En el metodo siguiente servira para mostrar el form de inicio de sesion, le pasamos la accion que llevara acabo del HttpPost, en este caso /autenticar/validar
+    //Como es como un form de windows le ponemos botones, los label y los textbox nada mas que con lenguaje HTML. Al presionar el boton se hace la accion y se ejecuta
+    //el metodo del loginController, mediante el HTTPPOST
+}
+
+<form method="post" action="/autenticar/validar">
+    <div class="form-group">
+        <label>Usuario: </label>
+        <input type="text" name=" CodigoUsuario" class="form-control col-sm-6 col-md-4" />
+    </div>
+
+    <div class="form-group">
+        <label>Contraseña: </label>
+        <input type="password" name=" Contrasena" class="form-control col-sm-6 col-md-4" />
+    </div>
+    <button class="btn btn-primary">Entrar</button>
+</form>
 
 @code {
+    [Parameter] public string MensajeError { get; set; }//parametro
+
 
 }
