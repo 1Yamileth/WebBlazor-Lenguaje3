@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Modelos;
 
-namespace Blazor_Vista.Pages.MiUsuario
+namespace Blazor_Vista.Pages.UsuarioMio
 {//ACA IRA EL CODIGO DE C#  Y EN EL COMPONENTE DE  "USUARIOS.RAZOR" IRA EL CODIGO DE HTML
     public partial class Usuarios //Con partial lo que hacemos es tener la misma clase en varios archivos, asi podemos dividir una clase sin ener probelmas y tener ordenado el codigo
     {

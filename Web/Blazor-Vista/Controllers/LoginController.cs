@@ -15,7 +15,7 @@ namespace Blazor_Vista.Controllers
         private ILoginRepositorio _loginRepositorio;
         private IUsuarioRepositorio _usuarioRepositorio; 
         //Se lo pasamos al contructor de esta clase
-        LoginController(Config config)
+        public LoginController(Config config)
         {
             _config = config;
             _loginRepositorio = new LoginRepositorio(config.CadenaConexion);

@@ -1,5 +1,5 @@
 ﻿using Blazor_Vista.Interfaces;
-using Blazor_Vista.Pages.MisUsuarios;
+using Blazor_Vista.Pages.UsuarioMio;
 using Datos.Interfaces;
 using Datos.Repositorios;
 using Modelos;

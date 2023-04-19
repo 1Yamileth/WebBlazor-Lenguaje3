@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,29 +9,32 @@ namespace Modelos
 {
     public class UsuariosM
     {
+        [Required(ErrorMessage ="EL CODIGO DE USUARIO ES REQUERIDO OBLIGATORIAMENTE")]//Con esta propiedad estamos diciendo que el codigo es obligatoria
         public string  CodigoUsuario { get; set; }
+        [Required(ErrorMessage = "EL CODIGO DE USUARIO ES REQUERIDO OBLIGATORIAMENTE")]
         public string Nombre { get; set; }
-        public string Constraseña{ get; set; }
+        public string Constrasena{ get; set; }
         public string Correo  { get; set; }
+        [Required(ErrorMessage = "EL CODIGO DE USUARIO ES REQUERIDO OBLIGATORIAMENTE")]
         public string Rol { get; set; }
         public byte[] Foto { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public bool EstaActivo { get; set; }
+        public bool EstadoActivo { get; set; }
 
         public UsuariosM()
         {
         }
 
-        public UsuariosM(string codigoUsuario, string nombre, string constraseña, string correo, string rol, byte[] foto, DateTime fechaCreacion, bool estaActivo)
+        public UsuariosM(string codigoUsuario, string nombre, string constrasena, string correo, string rol, byte[] foto, DateTime fechaCreacion, bool estadoActivo)
         {
             CodigoUsuario = codigoUsuario;
             Nombre = nombre;
-            Constraseña = constraseña;
+            Constrasena = constrasena;
             Correo = correo;
             Rol = rol;
             Foto = foto;
             FechaCreacion = fechaCreacion;
-            EstaActivo = estaActivo;
+            EstadoActivo = estadoActivo;
         }
     }
 }

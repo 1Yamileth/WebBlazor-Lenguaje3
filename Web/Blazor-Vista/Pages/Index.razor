@@ -1,6 +1,17 @@
-﻿//RUTA PRINICPAL
-@page "/"
+﻿@page "/" 
 
-<PageTitle>Index</PageTitle>
+<Blazor_Vista.Pages.Principal>
 
-<h1>BIENVENIDOS</h1>
+</Blazor_Vista.Pages.Principal>
+
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="class=" col-xs-1" align="center">
+            <h2 style="font-weight:700"> DEBE IDENTIFICARSE PARA PODER ACEDER AL SISTEMA</h2>
+            <span class="oi oi-arrow-thick-botton" style="font-size:40px"></span>
+            <br/>
+            <a style="color:blue; font-weight:700; font-size:28px;" href="login" class="ml-md-auto">login</a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+

@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\MiUsuario\EditarUsuario.razor" />
-    <Content Remove="Pages\MiUsuario\Usuarios.razor" />
+    <Content Remove="Pages\UsuarioMio\EditarUsuario.razor" />
+    <Content Remove="Pages\UsuarioMio\Usuarios.razor" />
+    <Content Remove="Pages\Principal.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,21 +19,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\MiUsuario\Usuarios.razor" />
+    <UpToDateCheckInput Remove="Pages\UsuarioMio\Usuarios.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\MiUsuario\EditarUsuario.razor" />
-    <_ContentIncludedByDefault Remove="Pages\MiUsuario\Usuarios.razor" />
+    <_ContentIncludedByDefault Remove="Pages\UsuarioMio\EditarUsuario.razor" />
+    <_ContentIncludedByDefault Remove="Pages\UsuarioMio\Usuarios.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Principal.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\MiUsuario\EditarUsuario.razor" />
-    <None Include="Pages\MiUsuario\Usuarios.razor" />
+    <None Include="Pages\UsuarioMio\EditarUsuario.razor" />
+    <None Include="Pages\UsuarioMio\Usuarios.razor" />
+    <None Include="Pages\Principal.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\MiUsuario\EditarUsuario.razor" />
+    <UpToDateCheckInput Remove="Pages\UsuarioMio\EditarUsuario.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Principal.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
   </ItemGroup>
 
 </Project>

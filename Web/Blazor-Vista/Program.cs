@@ -1,6 +1,7 @@
  using Blazor_Vista;
 using Blazor_Vista.Interfaces;
 using Blazor_Vista.Servicios;
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -18,6 +19,7 @@ builder.Services.AddScoped<ILoginServicio, LoginServicio>();//CLASE
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();//CLASE 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();//Inyectaremos o pasaremos el servicio de tipo de autentificacion
 builder.Services.AddHttpContextAccessor();//Nos permite acceder a los datos del usuario que esta con la sesion activa, que es lo que hicimos con el HttpContext en loginController
+builder.Services.AddSweetAlert2();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

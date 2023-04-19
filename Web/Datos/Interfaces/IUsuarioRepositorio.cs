@@ -9,7 +9,7 @@ namespace Datos.Interfaces
 {
     public interface IUsuarioRepositorio
     {
-        Task<UsuariosM> GetPorCodigoAsync(string codigo);//Le pasaremos el codigo del usuario y nos retornara todo el objeto
+        Task<UsuariosM> GetPorCodigoAsync(string codigoUsuario);//Le pasaremos el codigo del usuario y nos retornara todo el objeto
         Task<bool> NuevoAsync(UsuariosM usuario);
         Task<bool> ActualizarAsync(UsuariosM usuario);
         Task<bool> EliminarAsync(string codigo);
