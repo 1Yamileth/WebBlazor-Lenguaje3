@@ -15,7 +15,7 @@ namespace Blazor_Vista.Pages.UsuarioMio
 
 
         //ERRORERRRRRR
-        protected override async Task OnInitializedAsync()//Sobreescribe al inicio
+        protected override async Task OnInitializedAsync()
         {
             listaUsuarios = await usuarioServicio.GetListaAsync();//Con esto tenemos la lista de usuarios en esta clase(es como traer una lista en LOAD)
         }

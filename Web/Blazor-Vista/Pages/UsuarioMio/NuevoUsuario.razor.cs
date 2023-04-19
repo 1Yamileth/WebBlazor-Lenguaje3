@@ -41,7 +41,7 @@ namespace Blazor_Vista.Pages.UsuarioMio
             {
                 return;
             }
-            user.FechaCreacion= DateTime.Now//Le pasamos la fecha actual del sistema en la que se creo el usuario
+            user.FechaCreacion = DateTime.Now;//Le pasamos la fecha actual del sistema en la que se creo el usuario
 
             //Si los datos esta llenos pasa a esta variable 
             bool inserto = await usuarioServicio.NuevoAsync(user);
