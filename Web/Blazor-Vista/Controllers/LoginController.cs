@@ -37,7 +37,7 @@ namespace Blazor_Vista.Controllers
                     UsuariosM user = await _usuarioRepositorio.GetPorCodigoAsync(login.CodigoUsuario);
                     /*Una vez validado en la linea 29, aca se conulta todo el objeto con el metodo "Get por codigo async"
                      y vemos si si esta activo*/
-                    if (user.EstaActivo)
+                    if (user.EstadoActivo)
                     {
                         rol = user.Rol;//SI el usuario esta activo le pasamos que rol tiene
 
