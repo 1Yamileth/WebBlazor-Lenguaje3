@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        @if (lista == null)//Metemos todo ne las etiquetas "Autoizar" para qe solo los usuarios puedan ingresar a este tipo e acciones
+        @if (listaUsuarios == null)//Metemos todo ne las etiquetas "Autoizar" para qe solo los usuarios puedan ingresar a este tipo e acciones
         {
             <p>NO EXISTEN USUARIOS EN EL SISTEMA</p>
         }else
@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (UsuariosM user in lista)//la parte de arriba es el ecabezado de la lista
+                    @foreach (UsuariosM user in listaUsuarios)//la parte de arriba es el ecabezado de la lista
                     {
                         <tr>
                             <th>@user.CodigoUsuario</th>
@@ -49,7 +49,7 @@
                                 <th></th>
                             }
                             <th>@user.FechaCreacion</th>
-                            @if (user.EstaActivo)
+                            @if (user.EstadoActivo)
                             {
                                 <th>
                                     <span class="oi oi-circle-check" style="color: green;"></span>
@@ -66,7 +66,7 @@
                             <th>
                                 <a class="btn btn-success" href="@($"/Usuarios/Editar/{user.CodigoUsuario}")">Editar</a>
                             </th>
-                            <th>@user.EstaActivo</th>
+                            <th>@user.EstadoActivo</th>
                         </tr>
                     }
                 </tbody>
