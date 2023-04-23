@@ -43,7 +43,7 @@ namespace Datos.Repositorios
             return resultado;
         }
 
-        public async Task<bool> EliminarAsync(string codigo)
+        public async Task<bool> EliminarAsync(string CodigoProducto)
         {
             bool eliminar = false;
             try
@@ -51,7 +51,7 @@ namespace Datos.Repositorios
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
                 string sql = "DELETE FROM producto WHERE CodigoProducto= @CodigoProducto ;";
-                eliminar = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, new { codigo }));
+                eliminar = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, new { CodigoProducto }));
 
             }
             catch (Exception)
@@ -76,15 +76,15 @@ namespace Datos.Repositorios
             return lista;
         }
 
-        public async Task<ProductosM> GetPorCodigoAsync(string codigo)
+        public async Task<ProductosM> GetPorCodigoAsync(string CodigoProducto)
         {
             ProductosM prod = new ProductosM();
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = "SELECT * FROM producto WHERE Codigo= @Codigo ;";
-                prod = await _conexion.QueryFirstAsync<ProductosM>(sql, new { codigo });//El query devuelve un solo resultado de tipo usurio
+                string sql = "SELECT * FROM producto WHERE CodigoProducto= @CodigoProducto ;";
+                prod = await _conexion.QueryFirstAsync<ProductosM>(sql, new { CodigoProducto });//El query devuelve un solo resultado de tipo usurio
 
             }
             catch (Exception)

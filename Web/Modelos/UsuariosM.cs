@@ -25,14 +25,14 @@ namespace Modelos
         {
         }
 
-        public UsuariosM(string codigoUsuario, string nombre, string constrasena, string correo, string rol, byte[] foto, DateTime fechaCreacion, bool estadoActivo)
+        public UsuariosM(string codigoUsuario, string nombre, string constrasena, string correo, string rol, byte[] fotografia, DateTime fechaCreacion, bool estadoActivo)
         {
             CodigoUsuario = codigoUsuario;
             Nombre = nombre;
             Constrasena = constrasena;
             Correo = correo;
             Rol = rol;
-            Foto = foto;
+            Fotografia = fotografia;
             FechaCreacion = fechaCreacion;
             EstadoActivo = estadoActivo;
         }

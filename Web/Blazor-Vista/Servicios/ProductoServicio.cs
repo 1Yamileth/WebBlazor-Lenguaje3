@@ -23,9 +23,9 @@ namespace Blazor_Vista.Servicios
             return await productoRepositorio.ActualizarAsync(producto);
        }
 
-        public async Task<bool> EliminarAsync(string codigo)
+        public async Task<bool> EliminarAsync(string CodigoProducto)
         {
-            return await productoRepositorio.EliminarAsync(codigo);
+            return await productoRepositorio.EliminarAsync(CodigoProducto);
         }
 
         public async Task<IEnumerable<ProductosM>> GetListaAsync()
@@ -33,9 +33,9 @@ namespace Blazor_Vista.Servicios
             return await productoRepositorio.GetListaAsync();
         }
 
-        public async Task<ProductosM> GetPorCodigoAsync(string codigo)
+        public async Task<ProductosM> GetPorCodigoAsync(string CodigoProducto)
         {
-            return await productoRepositorio.GetPorCodigoAsync(codigo);
+            return await productoRepositorio.GetPorCodigoAsync(CodigoProducto);
         }
 
         public async Task<bool> NuevoAsync(ProductosM producto)

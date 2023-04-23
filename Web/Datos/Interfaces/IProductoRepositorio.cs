@@ -11,9 +11,9 @@ namespace Datos.Interfaces
     {
         Task<bool> NuevoAsync(ProductosM producto);
         Task<bool> ActualizarAsync(ProductosM producto);
-        Task<bool> EliminarAsync(string codigo);
+        Task<bool> EliminarAsync(string CodigoProducto);
         Task<IEnumerable<ProductosM>> GetListaAsync();
-        Task<ProductosM> GetPorCodigoAsync(string codigo);//Le pasaremos el codigo del usuario y nos retornara todo el objeto
+        Task<ProductosM> GetPorCodigoAsync(string CodigoProducto);//Le pasaremos el codigo del usuario y nos retornara todo el objeto
 
     }
 }
