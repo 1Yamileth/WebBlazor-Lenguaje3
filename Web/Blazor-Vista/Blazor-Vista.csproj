@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\ProductosMios\Productos.razor" />
     <Content Remove="Pages\UsuarioMio\EditarUsuario.razor" />
     <Content Remove="Pages\UsuarioMio\Usuarios.razor" />
     <Content Remove="Pages\Principal.razor" />
@@ -23,12 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\ProductosMios\Productos.razor" />
     <_ContentIncludedByDefault Remove="Pages\UsuarioMio\EditarUsuario.razor" />
     <_ContentIncludedByDefault Remove="Pages\UsuarioMio\Usuarios.razor" />
     <_ContentIncludedByDefault Remove="Pages\Principal.razor" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\ProductosMios\Productos.razor" />
     <None Include="Pages\UsuarioMio\EditarUsuario.razor" />
     <None Include="Pages\UsuarioMio\Usuarios.razor" />
     <None Include="Pages\Principal.razor" />
@@ -44,6 +47,10 @@
 
   <ItemGroup>
     <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ProductosMios\Productos.razor" />
   </ItemGroup>
 
 </Project>

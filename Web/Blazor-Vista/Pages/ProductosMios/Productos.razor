@@ -1,56 +1,53 @@
-﻿@page "/Usuarios"
+﻿@page "/Productos"
 @using Modelos;
-
 
 
 <AuthorizeView Roles="Administrador">
     <Authorized Context="AuthenticationState">
-        <h3>Lista De Usuarios</h3>
+        <h3>LISTA DE PRODUCTOS</h3>
         <div class="form-group row">
             <div class="col-sm-2">
-                <a href="/Usuarios/Nuevo" class="btn btn-primary m-2">NUEVO</a>
+                <a href="/Productos/Nuevo" class="btn btn-primary m-2">NUEVO</a>
             </div>
         </div>
 
-        @if (listaUsuarios == null)//Metemos todo ne las etiquetas "Autoizar" para qe solo los usuarios puedan ingresar a este tipo e acciones
+        @if (listaProductos == null)//Metemos todo ne las etiquetas "Autoizar" para qe solo los usuarios puedan ingresar a este tipo e acciones
         {
-            <p>NO EXISTEN USUARIOS EN EL SISTEMA</p>
-        }
-        else
+            <p>NO EXISTEN PRODUCTOS EN EL SISTEMA</p>
+        }else
         {
             <table class="table">
                 <thead>
                     <tr>
                         <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Rol</th>
+                        <th>Descripcion</th>
+                        <th>Existencia</th>
+                        <th>Precio</th>
                         <th>Foto</th>
-                        <th>Fecha Creacion</th>
                         <th>Esta Activo</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (UsuariosM user in listaUsuarios)//la parte de arriba es el ecabezado de la lista
+                    @foreach (ProductosM prod in listaProductos)//la parte de arriba es el ecabezado de la lista
                     {
                         <tr>
-                            <th>@user.CodigoUsuario</th>
-                            <th>@user.Nombre</th>
-                            <th>@user.Correo</th>
-                            <th>@user.Rol</th>
-                            @if (user.Foto != null)
+                            <th>@prod.CodigoProducto</th>
+                            <th>@prod.Descripcion</th>
+                            <th>@prod.Existencia</th>
+                            <th>@prod.Precio</th>
+
+                            @if (prod.Foto != null)
                             {//ESTAMOS CONVIRTIENDO A BASE M64, YA QUE NOSOTROS TRAEMOS LA FOTO DESDE LA BD Y NO DESDE LA PC
                                 <th>
-                                    <img width="40" height="40" src="data:image;base64,@System.Convert.ToBase64String(user.Foto)" />
+                                    <img width="40" height="40" src="data:image;base64,@System.Convert.ToBase64String(user.Foto)"/>
                                 </th>
                             }
                             else
                             {
                                 <th></th>
                             }
-                            <th>@user.FechaCreacion</th>
-                            @if (user.EstadoActivo)
+                            @if (prod.EstaActivo)
                             {
                                 <th>
                                     <span class="oi oi-circle-check" style="color: green;"></span>
@@ -65,7 +62,7 @@
                                 </th>
                             }
                             <th>
-                                <a class="btn btn-success" href="@($"/Usuarios/Editar/{user.CodigoUsuario}")">Editar</a>
+                                <a class="btn btn-success" href="@($"/Productos/Editar/{prod.CodigoProducto}")">Editar</a>
                             </th>
                         </tr>
                     }
@@ -77,5 +74,6 @@
         <h3>NO TIENE PERMISO PARA LLEVAR ACABO ESTA ACCION</h3>
     </NotAuthorized>
 </AuthorizeView>
+
 
 

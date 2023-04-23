@@ -33,7 +33,7 @@ namespace Blazor_Vista.Pages.UsuarioMio
             IBrowserFile imgFile = e.File;//Le asginamos lo que trae el evento
             var buffers = new byte[imgFile.Size];
             //CON LO DE ARRIBA TENEMOS SELECCIONADA LA FOTO
-            user.Foto = buffers;
+            user.Fotografia = buffers;
             //MOSTRAMOS UNA VISTA PREVIA
             await imgFile.OpenReadStream().ReadAsync(buffers);
             //Veremos que tipo de imagen es pnj, jpg, etc

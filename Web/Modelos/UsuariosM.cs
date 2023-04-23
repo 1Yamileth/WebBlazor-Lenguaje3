@@ -17,7 +17,7 @@ namespace Modelos
         public string Correo  { get; set; }
         [Required(ErrorMessage = "EL CODIGO DE USUARIO ES REQUERIDO OBLIGATORIAMENTE")]
         public string Rol { get; set; }
-        public byte[] Foto { get; set; }
+        public byte[] Fotografia { get; set; }
         public DateTime FechaCreacion { get; set; }
         public bool EstadoActivo { get; set; }
 

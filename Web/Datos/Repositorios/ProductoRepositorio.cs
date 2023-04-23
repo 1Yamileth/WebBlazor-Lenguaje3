@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Datos.Repositorios
 {
-    public class UsuarioRepositorio : IUsuarioRepositorio
+    public class ProductoRepositorio : IProductoRepositorio
     {//CADENA DE CONEXION
         private string CadenaConexion;//Recibira la cadena de conexion para conectarse a la BD.
 
         //COSNTRUCTOR
-        public UsuarioRepositorio(string _cadenaconexion)
+        public ProductoRepositorio(string _cadenaconexion)
         {
             CadenaConexion = _cadenaconexion;
         }
@@ -24,35 +24,34 @@ namespace Datos.Repositorios
         {
             return new MySqlConnection(CadenaConexion);//Pasando la conexion a mysql
         }
-        //METODOS 
-        public async Task<bool> ActualizarAsync(UsuariosM usuario)
+
+        public async Task<bool> ActualizarAsync(ProductosM producto)
         {
             bool resultado = false;
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = @"UPDATE  usuario SET Nombre= @Nombre, Contrasena=@Contrasena, Correo=@Correo, Rol= @Rol, Fotografia= @Fotografia,  EstadoActivo= @EstadoActivo
-                            WHERE CodigoUsuario= @CodigoUsuario ;";//EL @al inicio, nos permite poner la sentencia en variaas lineas.
-                resultado = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, usuario));
+                string sql = @"UPDATE  producto SET Descripcion= @Descripcion, Existencia=@Existencia, Precio=@Precio, 
+                             Foto= @Foto, EstaActivo= @EstaActivo WHERE CodigoProducto= @CodigoProducto ;";//EL @al inicio, nos permite poner la sentencia en variaas lineas.
+                resultado = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, producto));
 
             }
             catch (Exception)
             {
             }
             return resultado;
-
         }
 
-        public async Task<bool> EliminarAsync(string codigoUsuario)
+        public async Task<bool> EliminarAsync(string codigo)
         {
             bool eliminar = false;
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = "DELETE FROM usuario WHERE CodigoUsuario= @CodigoUsuario ;";
-                eliminar = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, new { codigoUsuario }));
+                string sql = "DELETE FROM producto WHERE CodigoProducto= @CodigoProducto ;";
+                eliminar = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, new { codigo }));
 
             }
             catch (Exception)
@@ -61,15 +60,15 @@ namespace Datos.Repositorios
             return eliminar;
         }
 
-        public async Task<IEnumerable<UsuariosM>> GetListaAsync()
+        public async  Task<IEnumerable<ProductosM>> GetListaAsync()
         {
-            IEnumerable<UsuariosM> lista = new List<UsuariosM>();//
+            IEnumerable<ProductosM> lista = new List<ProductosM>();
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = "SELECT * FROM usuario  ;";
-                lista = await _conexion.QueryAsync<UsuariosM>(sql);//Devolvemos la lista de tipo "usuario"
+                string sql = "SELECT * FROM producto  ;";
+                lista = await _conexion.QueryAsync<ProductosM>(sql);//Devolvemos la lista de tipo "usuario"
             }
             catch (Exception)
             {
@@ -77,33 +76,33 @@ namespace Datos.Repositorios
             return lista;
         }
 
-        public async Task<UsuariosM> GetPorCodigoAsync(string codigoUsuario)
+        public async Task<ProductosM> GetPorCodigoAsync(string codigo)
         {
-            UsuariosM user = new UsuariosM();
+            ProductosM prod = new ProductosM();
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = "SELECT * FROM usuario WHERE CodigoUsuario= @CodigoUsuario ;";
-                user = await _conexion.QueryFirstAsync<UsuariosM>(sql, new { codigoUsuario });//El query devuelve un solo resultado de tipo usurio
+                string sql = "SELECT * FROM producto WHERE Codigo= @Codigo ;";
+                prod = await _conexion.QueryFirstAsync<ProductosM>(sql, new { codigo });//El query devuelve un solo resultado de tipo usurio
 
             }
             catch (Exception)
             {
             }
-            return user;
+            return prod;
         }
 
-        public async Task<bool> NuevoAsync(UsuariosM usuario)
+        public async Task<bool> NuevoAsync(ProductosM producto)
         {
             bool resultado = false;
             try
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = @"INSERT INTO usuario (Nombre, Contrasena, Correo, Rol, Fotografia, FechaCreacion, EstadoActivo)
-                                VALUES (@Nombre, @Contrasena, @Correo, @Rol, @Fotografia, @FechaCreacion, @EstadoActivo);";
-                resultado = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, usuario));
+                string sql = @"INSERT INTO producto (CodigoProducto, Descripcion, Existencia, Precio, Foto, EstaActivo)
+                                VALUES (@CodigoProducto, @Descripcion, @Existencia, @Precio, @Foto, @EstaActivo);";
+                resultado = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, producto));
 
             }
             catch (Exception)

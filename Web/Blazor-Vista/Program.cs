@@ -14,9 +14,11 @@ builder.Services.AddServerSideBlazor();
 
 Config cadena = new Config(builder.Configuration.GetConnectionString("MySQL"));//Pasando la cdena de conexion, mediante el nombre de esta.
 builder.Services.AddSingleton(cadena);//Configurajmos el servicio para usarlo 
-//CONFIGURAMOS LOS SERVICIOS
+//CONFIGURAMOS LOS SERVICIOS, con estos podemos inyectar en cualqueir parte de nuestro codigo los servicios necesitados
 builder.Services.AddScoped<ILoginServicio, LoginServicio>();//CLASE 
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();//CLASE 
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();//CLASE 
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();//Inyectaremos o pasaremos el servicio de tipo de autentificacion
 builder.Services.AddHttpContextAccessor();//Nos permite acceder a los datos del usuario que esta con la sesion activa, que es lo que hicimos con el HttpContext en loginController
 builder.Services.AddSweetAlert2();
