@@ -39,10 +39,10 @@
                             <th>@user.Nombre</th>
                             <th>@user.Correo</th>
                             <th>@user.Rol</th>
-                            @if (user.Foto != null)
+                            @if (user.Fotografia != null)
                             {//ESTAMOS CONVIRTIENDO A BASE M64, YA QUE NOSOTROS TRAEMOS LA FOTO DESDE LA BD Y NO DESDE LA PC
                                 <th>
-                                    <img width="40" height="40" src="data:image;base64,@System.Convert.ToBase64String(user.Foto)" />
+                                    <img width="40" height="40" src="data:image;base64,@System.Convert.ToBase64String(user.Fotografia)" />
                                 </th>
                             }
                             else

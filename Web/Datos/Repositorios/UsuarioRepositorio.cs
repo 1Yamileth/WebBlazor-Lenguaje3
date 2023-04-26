@@ -101,8 +101,8 @@ namespace Datos.Repositorios
             {
                 using MySqlConnection _conexion = Conexion();//Asignando el metodo de conexion
                 await _conexion.OpenAsync();
-                string sql = @"INSERT INTO usuario (Nombre, Contrasena, Correo, Rol, Fotografia, FechaCreacion, EstadoActivo)
-                                VALUES (@Nombre, @Contrasena, @Correo, @Rol, @Fotografia, @FechaCreacion, @EstadoActivo);";
+                string sql = @"INSERT INTO usuario (CodigoUsuario, Nombre, Contrasena, Correo, Rol, Fotografia, FechaCreacion, EstadoActivo)
+                                VALUES (@CodigoUsuario, @Nombre, @Contrasena, @Correo, @Rol, @Fotografia, @FechaCreacion, @EstadoActivo);";
                 resultado = Convert.ToBoolean(await _conexion.ExecuteAsync(sql, usuario));
 
             }
