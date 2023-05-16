@@ -10,7 +10,7 @@ namespace Blazor_Vista.Pages.UsuarioMio
         //Con eston podemos ahorrarnos codigo y evitar la intanciacion seguida]
 
         //La usamos para 
-        private IEnumerable<UsuariosM>? listaUsuarios { get; set; }
+        private IEnumerable<UsuariosM> listaUsuarios { get; set; }
        // private IEnumerable<UsuariosM> listas { get; set; }
 
 
